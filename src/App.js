@@ -3,14 +3,22 @@ import "./App.css";
 
 export const initState = [
     {id: 1, text: "the first todo", done: false},
-    {id: 2, text: "the second todo", done: false},
+    {id: 2, text: "the second todo", done: true},
 ];
 export const TodoContext = createContext()
 
 function TodoItem(props) {
+    const {state, dispatch} = useContext(TodoContext)
+
+    function makeAsDone() {
+        dispatch({
+            type: "TOGGLE_TODO",
+            payload: {id: props.todo.id}
+        })
+    }
 
     return <div className={"todo-item"}>
-        <span className={props.todo.done?"todo-done":""}>
+        <span className={props.todo.done ? "todo-done" : ""}>
         {props.todo.text}
 
         </span>
@@ -21,7 +29,7 @@ function TodoGroup() {
     const {state, dispatch} = useContext(TodoContext)
     return <div>
         {
-            state.map((item,index)=>{
+            state.map((item, index) => {
                 return <TodoItem todo={item} key={index} index={index}></TodoItem>
             })
         }
@@ -36,7 +44,8 @@ export function todoReducer(state, action) {
             const id = action.payload.id;
             return newState.map((value) => {
                 if (value.id === id) {
-                    return { id,
+                    return {
+                        id,
                         text: value.text,
                         done: !value.done
                     };
