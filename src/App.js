@@ -1,6 +1,6 @@
 import {useReducer} from "react";
 import "./App.css";
-import {TodoGroup} from "./component/TodoGroup";
+import {TodoGroup} from "./components/TodoGroup";
 import {todoReducer} from "./reducer/TodoReducer";
 import {TodoContext as TodoContext1} from "./contexts/TodoContext";
 

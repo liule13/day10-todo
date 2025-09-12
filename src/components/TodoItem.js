@@ -14,8 +14,7 @@ export function TodoItem(props) {
 
     return <div className={"todo-item"}>
         <span className={props.todo.done ? "todo-done" : ""}>
-        {props.todo.text}
-
+            {props.todo.text}
         </span>
     </div>;
 }
