@@ -1,4 +1,5 @@
 import {createContext, useContext, useReducer} from "react";
+import "./App.css";
 
 export const initState = [
     {id: 1, text: "the first todo", done: false},
@@ -7,8 +8,12 @@ export const initState = [
 export const TodoContext = createContext()
 
 function TodoItem(props) {
-    return <div className="todo-item">
+
+    return <div className={"todo-item"}>
+        <span className={props.todo.done?"todo-done":""}>
         {props.todo.text}
+
+        </span>
     </div>;
 }
 
@@ -24,7 +29,24 @@ function TodoGroup() {
 }
 
 export function todoReducer(state, action) {
-    return state
+    switch (action.type) {
+        case "TOGGLE_TODO":
+            /// copy
+            const newState = [...state];
+            const id = action.payload.id;
+            return newState.map((value) => {
+                if (value.id === id) {
+                    return { id,
+                        text: value.text,
+                        done: !value.done
+                    };
+                }
+
+                return value
+            })
+        default:
+            return state;
+    }
 }
 
 function App() {
