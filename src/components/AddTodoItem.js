@@ -26,7 +26,7 @@ export function AddTodoForm() {
                     className="todo-input"
                 />
             </form>
-            <button type="submit" className="add-button">添加</button>
+            <button type="submit" className="add-button">add</button>
         </div>
     );
 }

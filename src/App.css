@@ -10,7 +10,6 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-bottom: 16px;
 }
 
 .todo-list {
@@ -41,4 +40,11 @@
     border-bottom: 1px solid #eee;
     align-items: center;
     flex-direction: row;
+}
+.add-button {
+    border: solid 1px #ccc;
+    cursor: pointer;
+    background-color: #6498f8;
+    color: white;
+    width: 40px;
 }
