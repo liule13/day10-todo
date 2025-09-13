@@ -8,13 +8,15 @@ export function TodoGroup() {
     const {state, dispatch} = useContext(TodoContext)
     return <div>
         <h1>Todo List</h1>
+        {state.length === 0 ? (
+            <p>Add the things you need to do today...</p>
+        ) : (
+            state.map((item) => (
+                <TodoItem key={item.id} todo={item}/>
+            ))
+        )}
 
-        {
-            state.map((item, index) => {
-                return <TodoItem todo={item} key={index} index={index}></TodoItem>
-            })
-        }
-        <AddTodoForm />
+        <AddTodoForm/>
 
     </div>;
 }
