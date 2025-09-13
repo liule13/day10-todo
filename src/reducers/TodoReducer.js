@@ -1,7 +1,6 @@
 export function todoReducer(state, action) {
     switch (action.type) {
         case "TOGGLE_TODO":
-            /// copy
             const newState = [...state];
             const id = action.payload.id;
             return newState.map((value) => {
@@ -15,6 +14,13 @@ export function todoReducer(state, action) {
 
                 return value
             })
+        case "ADD_TODO":
+            const newTodo = {
+                id: Date.now(), // 使用时间戳作为唯一ID
+                text: action.payload.text,
+                done: false
+            };
+            return [...state, newTodo];
         default:
             return state;
     }
