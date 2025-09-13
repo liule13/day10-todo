@@ -3,28 +3,42 @@
     flex-direction: column;
     align-items: center;
 }
+
 .todo-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
 }
 
 .todo-list {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
-.todo-item{
+
+.todo-item {
     width: 400px;
     border: 1px solid #ccc;
     text-align: center;
 }
-.todo-item .todo-done{
+
+.todo-item .todo-done {
     text-decoration: line-through;
 }
+
 .delete-button {
-  border: solid 1px #ccc;
-  border-radius: 2px;
-  cursor: pointer;
+    border: solid 1px #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.add-todo-form {
+    display: flex;
+    gap: 12px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+    flex-direction: row;
 }

@@ -17,14 +17,16 @@ export function AddTodoForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="add-todo-form">
-            <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                className="todo-input"
-            />
+        <div className="add-todo-form">
+            <form onSubmit={handleSubmit} >
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    className="todo-input"
+                />
+            </form>
             <button type="submit" className="add-button">添加</button>
-        </form>
+        </div>
     );
 }
