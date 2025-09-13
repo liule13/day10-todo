@@ -1,8 +1,8 @@
-import { useState, useContext } from "react";
-import { TodoContext } from "../contexts/TodoContext";
+import {useState, useContext} from "react";
+import {TodoContext} from "../contexts/TodoContext";
 
 export function AddTodoForm() {
-    const { dispatch } = useContext(TodoContext);
+    const {dispatch} = useContext(TodoContext);
     const [inputValue, setInputValue] = useState("");
 
     const handleSubmit = (e) => {
@@ -10,23 +10,21 @@ export function AddTodoForm() {
         if (inputValue.trim()) {
             dispatch({
                 type: "ADD_TODO",
-                payload: { text: inputValue.trim() }
+                payload: {text: inputValue.trim()}
             });
-            setInputValue(""); // 清空输入框
+            setInputValue("");
         }
     };
 
     return (
-        <div className="add-todo-form">
-            <form onSubmit={handleSubmit} >
-                <input
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    className="todo-input"
-                />
-            </form>
+        <form onSubmit={handleSubmit} className="add-todo-form">
+            <input
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                className="todo-input"
+            />
             <button type="submit" className="add-button">add</button>
-        </div>
+        </form>
     );
 }
