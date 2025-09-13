@@ -1,11 +1,26 @@
+.todo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+
+.todo-list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
 .todo-item{
-    width: 320px;
-    padding: 10px;
+    width: 400px;
     border: 1px solid #ccc;
-    margin-top: 10px;
     text-align: center;
 }
 .todo-item .todo-done{
     text-decoration: line-through;
-    color: gray;
+}
+.delete-button {
+  border: solid 1px #ccc;
+  border-radius: 2px;
+  cursor: pointer;
 }

@@ -1,20 +1,21 @@
-import {useReducer} from "react";
+import { useReducer } from "react";
 import "./App.css";
-import {TodoGroup} from "./components/TodoGroup";
-import {todoReducer} from "./reducers/TodoReducer";
-import {TodoContext} from "./contexts/TodoContext";
+import { TodoGroup } from "./components/TodoGroup";
+import { todoReducer } from "./reducers/TodoReducer";
+import { TodoContext } from "./contexts/TodoContext";
 
 export const initState = [
-    // {id: 1, text: "the first todo", done: false},
-    // {id: 2, text: "the second todo", done: true},
-];
+    {id: 1, text: "This is the first todo I need to do", done: false},
+    {id: 2, text: "This is the second todo I need to do", done: false},
+    {id: 3, text: "I already done this item", done: true}];
 
 function App() {
     const [state, dispatch] = useReducer(todoReducer, initState);
     return (
-        <div>
-            <TodoContext value={{state, dispatch}}>
-                <TodoGroup/>
+        <div className="App">
+            <h2>Todo List</h2>
+            <TodoContext value={{ state, dispatch }}>
+                <TodoGroup />
             </TodoContext>
         </div>
     );
