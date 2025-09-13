@@ -12,9 +12,10 @@ export function TodoItem(props) {
         })
     }
 
-    return <div className={"todo-item"}>
-        <span className={props.todo.done ? "todo-done" : ""}>
-            {props.todo.text}
-        </span>
-    </div>;
+    return (
+        <div className={"todo-item"} onClick={makeAsDone}>
+            <span className={props.todo.done ? "todo-done" : ""}>
+                {props.todo.text}
+            </span>
+        </div>);
 }
