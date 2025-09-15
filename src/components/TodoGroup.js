@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { TodoItem } from "./TodoItem";
 
 import { TodoContext } from "../contexts/TodoContext";
-import { AddTodoForm } from "./AddTodoItem";
 
 export function TodoGroup() {
     const { state } = useContext(TodoContext)
@@ -15,7 +14,6 @@ export function TodoGroup() {
                     <TodoItem key={item.id} todo={item} />
                 ))
             )}
-            <AddTodoForm />
         </div>
     );
 }

@@ -16,7 +16,7 @@ export function todoReducer(state, action) {
             })
         case "ADD_TODO":
             const newTodo = {
-                id: Date.now(), // 使用时间戳作为唯一ID
+                id: Date.now(),
                 text: action.payload.text,
                 done: false
             };

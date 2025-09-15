@@ -15,7 +15,7 @@ function App() {
         <div className="App">
             <h2>Todo List</h2>
             <TodoContext value={{ state, dispatch }}>
-                <TodoGroup />
+                <TodoGroup/>
             </TodoContext>
         </div>
     );
