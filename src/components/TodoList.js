@@ -1,4 +1,4 @@
-import {AddTodoForm} from "./AddTodoItem";
+import {TodoGenerator} from "./TodoGenerator";
 import {TodoGroup} from "./TodoGroup";
 
 export default function TodoList() {
@@ -6,7 +6,7 @@ export default function TodoList() {
         <div className="todo-list">
             <h2>Todo List</h2>
             <TodoGroup />
-            <AddTodoForm />
+            <TodoGenerator />
         </div>
     );
 }

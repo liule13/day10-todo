@@ -4,7 +4,7 @@ import {useTodoService} from "../useTodoService";
 import {Button, Input} from "antd";
 import {PlusOutlined} from "@ant-design/icons";
 
-export function AddTodoForm() {
+export function TodoGenerator() {
     const {createTodo} = useTodoService();
     const {dispatch} = useContext(TodoContext);
     const [inputValue, setInputValue] = useState("");
