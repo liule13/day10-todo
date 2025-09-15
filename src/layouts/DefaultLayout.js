@@ -1,10 +1,8 @@
-import {NavLink, Outlet, useNavigate} from "react-router";
+import { Outlet, useNavigate} from "react-router";
 import React, {useState} from 'react';
 import {
     DesktopOutlined,
-    FileOutlined,
     PieChartOutlined,
-    TeamOutlined,
     UserOutlined,
 } from '@ant-design/icons';
 import {Layout, Menu, theme} from 'antd';

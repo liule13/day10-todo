@@ -61,7 +61,7 @@ export function TodoItem(props) {
                 </span>
             </div>
             <Button type="primary" onClick={showModal}>
-                Open Modal
+                edit
             </Button>
             <Modal
                 title="Todo"
