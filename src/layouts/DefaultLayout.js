@@ -28,16 +28,22 @@ const routes = {
     2: "/done",
     3: "/about",
 };
+const menuTitles = {
+    '1': 'Todo List',
+    '2': 'Done List',
+    '3': 'ℹAbout Us',
+};
 
 
 export function DefaultLayout() {
     const navigate = useNavigate();
-
     const [collapsed, setCollapsed] = useState(false);
+    const [selectedKey, setSelectedKey] = useState('1');
     const {
         token: {colorBgContainer, borderRadiusLG},
     } = theme.useToken();
     const handleMenuClick = ({key}) => {
+        setSelectedKey(key);
         navigate(routes[key]);
     };
     return (
@@ -49,7 +55,11 @@ export function DefaultLayout() {
                           onClick={handleMenuClick}/>
                 </Sider>
                 <Layout>
-                    <Header style={{padding: 0, background: colorBgContainer}}/>
+                    <Header style={{padding: 0, background: colorBgContainer}}>
+                        <h2>
+                            {menuTitles[selectedKey]}
+                        </h2>
+                    </Header>
                     <Content style={{margin: '0 16px'}}>
                         <div
                             style={{
