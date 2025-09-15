@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
 import { useContext } from "react";
 import { TodoContext } from "../contexts/TodoContext";
-import { Card, Typography, Tag, Space, Button } from "antd";
-import {ArrowLeftOutlined, EditOutlined} from "@ant-design/icons";
+import { Card, Typography, Space, Button } from "antd";
+import {ArrowLeftOutlined} from "@ant-design/icons";
 import { useNavigate } from "react-router";
 
 const { Title, Text } = Typography;

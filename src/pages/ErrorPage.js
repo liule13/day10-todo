@@ -20,9 +20,11 @@ export function ErrorPage() {
             {error.status === 404 ? (
                 <>
                     <h1 style={{ fontSize: "4rem", marginBottom: "1rem" }}>404</h1>
-                    <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>页面未找到</h2>
+                    <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>
+                        Page Not Found
+                    </h2>
                     <p style={{ fontSize: "1.2rem", marginBottom: "2rem", color: "#666" }}>
-                        抱歉，您访问的页面不存在。
+                        Sorry, the page you are looking for does not exist.
                     </p>
                     <a
                         href="/"
@@ -37,19 +39,21 @@ export function ErrorPage() {
                             cursor: "pointer",
                         }}
                     >
-                         返回首页
+                         return to Home
                     </a>
                 </>
             ) : (
                 <>
                     <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem", color: "#d32f2f" }}>
-                        出现了一个错误
+                        Error occurred
                     </h1>
                     <p style={{ fontSize: "1.1rem", marginBottom: "2rem", color: "#555" }}>
-                        抱歉，发生了意外错误，请稍后重试或联系管理员。
+                        Sorry, an unexpected error has occurred.
                     </p>
                     <details style={{ textAlign: "left", maxWidth: "600px", fontSize: "0.9rem" }}>
-                        <summary style={{ cursor: "pointer", color: "#007bff" }}>🔧 查看错误详情（开发调试用）</summary>
+                        <summary style={{ cursor: "pointer", color: "#007bff" }}>
+                            Click to see error details
+                        </summary>
                         <pre style={{ background: "#f1f1f1", padding: "1rem", borderRadius: "5px", overflow: "auto" }}>
               {JSON.stringify(error, null, 2)}
             </pre>

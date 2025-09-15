@@ -23,8 +23,8 @@ export function AboutUsPage() {
                 }}
             >
                 <Paragraph style={{ fontSize: '16px', lineHeight: '1.6' }}>
-                    这是一个简单而强大的待办事项管理工具，帮助你更好地规划每一天。
-                    我们致力于让任务管理变得轻松、直观、高效。
+                    This application is developed by a passionate team dedicated to helping you manage your tasks efficiently.
+                    Our goal is to provide a simple and effective tool to keep track of your to-dos and enhance your productivity.
                 </Paragraph>
             </Card>
         </div>
