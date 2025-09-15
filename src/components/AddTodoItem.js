@@ -1,5 +1,6 @@
 import {useState, useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
+import {api} from "../mockApi";
 
 export function AddTodoForm() {
     const {dispatch} = useContext(TodoContext);
@@ -8,10 +9,14 @@ export function AddTodoForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputValue.trim()) {
-            dispatch({
-                type: "ADD_TODO",
-                payload: {text: inputValue.trim()}
-            });
+            api.post("/todos", {text: inputValue.trim(), done: false})
+                .then(response => response.data)
+                .then(todo => {
+                    dispatch({
+                        type: "ADD_TODO",
+                        payload: todo
+                    });
+                });
             setInputValue("");
         }
     };
