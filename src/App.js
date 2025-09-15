@@ -6,18 +6,21 @@ import {RouterProvider} from "react-router";
 import {router} from "./routers/Router";
 import {api} from "./mockApi";
 
+function loadTodos() {
+    return api.get("/todos")
+        .then(response => response.data);
+}
+
 function App() {
     const [state, dispatch] = useReducer(todoReducer, []);
     useEffect(() => {
-        api.get("/todos")
-            .then(response => response.data)
-            .then(todos => {
-                    dispatch({
-                        type: "LOAD_TODOS",
-                        payload: todos
-                    });
-                }
-            )
+        loadTodos().then(todos => {
+                dispatch({
+                    type: "LOAD_TODOS",
+                    payload: todos
+                });
+            }
+        )
     }, [dispatch]);
     return (
         <div className="App">
