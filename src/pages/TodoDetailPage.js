@@ -8,9 +8,6 @@ export function TodoDetailPage() {
     const {state} = useContext(TodoContext);
     const todo = state.find(t => String(t.id) === String(id));
     console.log(todo)
-    if (!todo) {
-        return <p>未找到该 Todo</p>;
-    }
     return (
         <div>
             <TodoItem key={todo.id} todo={todo}/>

@@ -1,4 +1,4 @@
-import { Outlet, useNavigate} from "react-router";
+import {Outlet, useNavigate} from "react-router";
 import React, {useState} from 'react';
 import {
     DesktopOutlined,
@@ -23,30 +23,28 @@ const items = [
     getItem('DoneList', '2', <DesktopOutlined/>),
     getItem('About Us', '3', <UserOutlined/>),
 ];
+const routes = {
+    1: "/",
+    2: "/done",
+    3: "/about",
+};
+const navigate = useNavigate();
+const handleMenuClick = ({key}) => {
+    navigate(routes[key]);
+};
 
 export function DefaultLayout() {
-    const navigate = useNavigate();
     const [collapsed, setCollapsed] = useState(false);
     const {
         token: {colorBgContainer, borderRadiusLG},
     } = theme.useToken();
-    function navigateTo({ key }) {
-        if (key === '1') {
-            navigate('/');
-        } else if (key === '2') {
-            navigate('/done');
-        } else if (key === '3') {
-            navigate('/about');
-        }
-    }
-
     return (
         <div className="app-container">
             <Layout style={{minHeight: '100vh'}}>
                 <Sider collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
                     <div className="demo-logo-vertical"/>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items}
-                          onClick={navigateTo}/>
+                          onClick={handleMenuClick}/>
                 </Sider>
                 <Layout>
                     <Header style={{padding: 0, background: colorBgContainer}}/>
