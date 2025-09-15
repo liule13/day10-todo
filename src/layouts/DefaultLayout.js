@@ -31,7 +31,7 @@ const routes = {
 const menuTitles = {
     '1': 'Todo List',
     '2': 'Done List',
-    '3': 'ℹAbout Us',
+    '3': 'About Us',
 };
 
 
@@ -56,9 +56,16 @@ export function DefaultLayout() {
                 </Sider>
                 <Layout>
                     <Header style={{padding: 0, background: colorBgContainer}}>
-                        <h2>
-                            {menuTitles[selectedKey]}
-                        </h2>
+                        <div style={{
+                            background: colorBgContainer,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <h2>
+                                {menuTitles[selectedKey]}
+                            </h2>
+                        </div>
                     </Header>
                     <Content style={{margin: '0 16px'}}>
                         <div
