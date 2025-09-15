@@ -4,19 +4,22 @@ import {TodoContext} from "../contexts/TodoContext";
 import {useTodoService} from "../useTodoService";
 import {Button, Input, Modal} from "antd";
 import {api} from "../mockApi";
+import {useNavigate} from "react-router";
 
 export function TodoItem(props) {
     const {updateTodo, deleteTodoItem} = useTodoService()
     const {dispatch} = useContext(TodoContext)
     const todo = props.todo
+    const [editText, setEditText] = useState(todo.text);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate();
     const showModal = () => {
         setIsModalOpen(true);
     };
     const handleOk = () => {
         api.put("/todos/" + todo.id, {
             ...todo,
-            text: document.getElementsByClassName("ant-input")[0].value
+            text: editText
         }).then(res => res.data)
             .then(data => {
                 dispatch({
@@ -39,6 +42,7 @@ export function TodoItem(props) {
                 });
             })
     }
+
     function deleteTodo() {
         deleteTodoItem(todo)
             .then((todo => {
@@ -49,15 +53,16 @@ export function TodoItem(props) {
                 }
             ))
     }
+
     function toDetail() {
-        window.location.href = `/todos/${props.todo.id}`
+        navigate(`/todos/${todo.id}`);
     }
 
     return (
         <div className="todo-item-container">
             <div className={"todo-item"} onClick={makeAsDone}>
-                <span className={props.todo.done ? "todo-done" : ""}>
-                    {props.todo.text}
+                <span className={todo.done ? "todo-done" : ""}>
+                    {todo.text}
                 </span>
             </div>
             <Button type="primary" onClick={showModal}>
@@ -70,7 +75,9 @@ export function TodoItem(props) {
                 onOk={handleOk}
                 onCancel={handleCancel}
             >
-                <Input placeholder="Update Todo"/>
+                <Input
+                    value={editText}
+                    onChange={(e) => setEditText(e.target.value)}/>
             </Modal>
             <Button type="primary" onClick={toDetail}>
                 details

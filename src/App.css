@@ -1,71 +1,59 @@
-/* ========== 整体待办列表容器 ========== */
 .todo-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: 100%; /* 保证在不同屏幕下占满可用宽度 */
-    padding: 16px; /* 增加内边距，避免紧贴边缘 */
+    width: 100%;
+    padding: 16px;
     box-sizing: border-box;
 }
-
-/* ========== 待办分组（如分类或批量展示区域）========== */
 .todo-group {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* 通常内容不需要居中，从顶部开始更自然 */
+    justify-content: flex-start;
     gap: 8px;
     width: 100%;
-    max-width: 980px; /* 推荐使用 max-width 而非固定宽度，更灵活且响应式 */
-    padding: 0 16px; /* 避免在窄屏上内容贴边 */
+    max-width: 980px;
+    padding: 0 16px;
     box-sizing: border-box;
 }
-
-/* 如果你确实需要内容在 todo-group 里也水平居中，才用 align-items: center */
-/* 但大多数情况下，内容左对齐更符合用户习惯 */
-
-/* ========== 单个待办项容器（横向排列，如复选框+文本+删除按钮）========== */
 .todo-item-container {
     display: flex;
     flex-direction: row;
-    align-items: center; /* 让子元素垂直居中对齐，更美观 */
+    align-items: center;
     gap: 8px;
     width: 100%;
     box-sizing: border-box;
 }
-
-/* ========== 单个待办事项 ========== */
 .todo-item {
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
-    border-radius: 4px; /* 增加圆角更现代 */
+    border-radius: 4px;
     padding: 8px 12px;
     background-color: #fff;
-    text-align: left; /* 通常文本左对齐更易读 */
-    flex: 1; /* 让 todo-item 自动撑满剩余空间 */
-    margin: 0; /* 去掉 margin，用 gap 控制间距更规范 */
+    text-align: left;
+    flex: 1;
+    margin: 0;
     box-sizing: border-box;
-    transition: background-color 0.2s ease; /* 平滑过渡效果 */
+    transition: background-color 0.2s ease;
 }
 
 .todo-item:hover {
-    background-color: #f9f9f9; /* 鼠标悬停效果 */
+    background-color: #f9f9f9;
 }
 
-/* 已完成的待办项文本样式 */
 .todo-item .todo-done {
     text-decoration: line-through;
-    color: #888; /* 增加视觉层次，表示已失效/完成 */
+    color: #888;
 }
 
-/* ========== 删除按钮 ========== */
 .delete-button {
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #ff4d4f; /* 删除操作使用警示色更直观，比如浅红 */
+    background-color: #ff4d4f;
     color: white;
     cursor: pointer;
     padding: 4px 8px;
@@ -78,7 +66,6 @@
     border-color: #d32f2f;
 }
 
-/* ========== 添加待办表单容器 ========== */
 .add-todo-form {
     display: flex;
     align-items: center;
@@ -87,11 +74,10 @@
     padding: 12px 0;
     width: 100%;
     max-width: 980px;
-    margin: 0 auto; /* 居中显示，如果父级是居中的 */
+    margin: 0 auto;
     box-sizing: border-box;
 }
 
-/* ========== 添加按钮 ========== */
 .add-button {
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -101,8 +87,6 @@
     padding: 6px 10px;
     font-size: 14px;
     transition: background-color 0.2s ease;
-    /* 不建议固定宽度，除非有特殊需求；按钮文字可能换行或被压缩 */
-    /* width: 40px; → 改为自适应 */
 }
 
 .add-button:hover {
