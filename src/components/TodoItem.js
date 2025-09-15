@@ -1,11 +1,20 @@
 import { useContext } from "react";
 
 import { TodoContext } from "../contexts/TodoContext";
+import {api} from "../mockApi";
 
 export function TodoItem(props) {
     const { dispatch } = useContext(TodoContext)
 
     function makeAsDone() {
+        api.put("/todos/" + props.todo.id, {
+            ...props.todo,
+            done: !props.todo.done
+        }).then(() => {
+            console.log("Toggled todo with id:", props.todo.id);
+        }).catch((error) => {
+            console.error("Error toggling todo:", error);
+        })
         dispatch({
             type: "TOGGLE_TODO",
             payload: { id: props.todo.id }
@@ -13,6 +22,13 @@ export function TodoItem(props) {
     }
 
     function deleteTodo() {
+        api.delete("/todos/" + props.todo.id)
+            .then(() => {
+                console.log("Deleted todo with id:", props.todo.id);
+            })
+            .catch((error) => {
+                console.error("Error deleting todo:", error);
+            });
         dispatch({
             type: "DELETE_TODO",
             payload: { id: props.todo.id }
