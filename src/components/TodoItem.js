@@ -5,6 +5,7 @@ import {useTodoService} from "../useTodoService";
 import {Button, Input, Modal} from "antd";
 import {api} from "../mockApi";
 import {useNavigate} from "react-router";
+import {DeleteOutlined, EditOutlined, EyeOutlined} from "@ant-design/icons";
 
 export function TodoItem(props) {
     const {updateTodo, deleteTodoItem} = useTodoService()
@@ -65,9 +66,7 @@ export function TodoItem(props) {
                     {todo.text}
                 </span>
             </div>
-            <Button type="primary" onClick={showModal}>
-                edit
-            </Button>
+            <Button ttype="text" size="small" style={{ color: "#1890ff" }} onClick={showModal} icon={<EditOutlined />}></Button>
             <Modal
                 title="Todo"
                 closable={{'aria-label': 'Custom Close Button'}}
@@ -79,12 +78,8 @@ export function TodoItem(props) {
                     value={editText}
                     onChange={(e) => setEditText(e.target.value)}/>
             </Modal>
-            <Button type="primary" onClick={toDetail}>
-                details
-            </Button>
-            <Button color="danger" onClick={deleteTodo}>
-                X
-            </Button>
+            <Button type="text" size="small" style={{ color: "#1890ff" }} onClick={toDetail} icon={<EyeOutlined />}></Button>
+            <Button type="text" size="small" danger onClick={deleteTodo} icon={<DeleteOutlined />}></Button>
         </div>
     );
 }
