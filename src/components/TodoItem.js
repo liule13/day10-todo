@@ -19,6 +19,10 @@ export function TodoItem(props) {
         });
     }
 
+    function toDetail() {
+        window.location.href = `/todos/${props.todo.id}`
+    }
+
     return (
         <div className="todo-item-container">
             <div className={"todo-item"} onClick={makeAsDone}>
@@ -27,6 +31,7 @@ export function TodoItem(props) {
                 </span>
             </div>
             <button className="delete-button" onClick={deleteTodo}>X</button>
+            <button className={"detail-button"} onClick={toDetail}>details</button>
         </div>
 
 
