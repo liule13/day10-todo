@@ -10,8 +10,7 @@ export function useTodoService(){
         return api.put("/todos/" + todo.id, {
             ...todo,
             done: !todo.done
-        })
-            .then(res => res.data);
+        }).then(res => res.data);
     }
 
     function deleteTodoItem(todo) {
