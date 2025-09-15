@@ -1,11 +1,11 @@
-import {useContext, useReducer} from "react";
+import {useReducer} from "react";
 import "./App.css";
 import {todoReducer} from "./reducers/TodoReducer";
 import {initState, TodoContext} from "./contexts/TodoContext";
-import {createBrowserRouter, NavLink, Outlet, RouterProvider, useParams} from "react-router";
+import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
 import {ErrorPage} from "./pages/ErrorPage";
 import {HomePage} from "./pages/HomePage";
-import {TodoItem} from "./components/TodoItem";
+import {TodoDetailPage} from "./pages/TodoDetailPage";
 
 
 function DefaultLayout() {
@@ -22,17 +22,6 @@ function DefaultLayout() {
             <main>
                 <Outlet></Outlet>
             </main>
-        </div>
-    );
-}
-
-function TodoDetailPage() {
-    const {id} = useParams()
-    const {state} = useContext(TodoContext)
-    const todo = state.filter((todo) => todo.id === parseInt(id))
-    return (
-        <div>
-            <TodoItem todo={todo[0]} index = {id}></TodoItem>
         </div>
     );
 }
