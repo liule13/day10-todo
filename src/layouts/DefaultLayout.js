@@ -28,16 +28,18 @@ const routes = {
     2: "/done",
     3: "/about",
 };
-const navigate = useNavigate();
-const handleMenuClick = ({key}) => {
-    navigate(routes[key]);
-};
+
 
 export function DefaultLayout() {
+    const navigate = useNavigate();
+
     const [collapsed, setCollapsed] = useState(false);
     const {
         token: {colorBgContainer, borderRadiusLG},
     } = theme.useToken();
+    const handleMenuClick = ({key}) => {
+        navigate(routes[key]);
+    };
     return (
         <div className="app-container">
             <Layout style={{minHeight: '100vh'}}>
