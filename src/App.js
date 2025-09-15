@@ -1,14 +1,40 @@
-import { useReducer } from "react";
+import {useReducer} from "react";
 import "./App.css";
-import { todoReducer } from "./reducers/TodoReducer";
-import { TodoContext } from "./contexts/TodoContext";
+import {todoReducer} from "./reducers/TodoReducer";
+import {TodoContext} from "./contexts/TodoContext";
 import TodoList from "./components/TodoList";
-import { createBrowserRouter, Route, RouterProvider } from "react-router";
+import {createBrowserRouter, NavLink, Outlet, Route, RouterProvider} from "react-router";
+
+
+function DefaultLayout() {
+    return (
+        <div className="app-container">
+            <header>
+                <nav>
+                    <ul>
+                        <li>
+                            <NavLink to={"/"}>Home</NavLink>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <Outlet></Outlet>
+            </main>
+        </div>
+    );
+}
 
 const router = createBrowserRouter([
     {
-        path: "/todos",
-        element: <TodoList />
+        path: "/",
+        element: <DefaultLayout/>,
+        children: [
+            {
+                path: "/",
+                element: <TodoList/>
+            }
+        ]
     }
 ])
 
@@ -21,9 +47,8 @@ function App() {
     const [state, dispatch] = useReducer(todoReducer, initState);
     return (
         <div className="App">
-            <h2>Todo List</h2>
-            <TodoContext value={{ state, dispatch }}>
-                <RouterProvider router={router} />
+            <TodoContext value={{state, dispatch}}>
+                <RouterProvider router={router}/>
             </TodoContext>
         </div>
     );
