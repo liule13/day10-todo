@@ -4,13 +4,7 @@ import {todoReducer} from "./reducers/TodoReducer";
 import {TodoContext} from "./contexts/TodoContext";
 import {RouterProvider} from "react-router";
 import {router} from "./routers/Router";
-import axios from "axios";
-
-const api = axios.create({
-    baseURL: "https://68c7ac9c5d8d9f51473288cc.mockapi.io/",
-    headers: {"Content-Type": "application/json"},
-    timeout: 10_000,
-})
+import {api} from "./mockApi";
 
 function App() {
     const [state, dispatch] = useReducer(todoReducer, []);
