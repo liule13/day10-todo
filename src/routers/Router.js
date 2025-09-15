@@ -4,6 +4,7 @@ import {ErrorPage} from "../pages/ErrorPage";
 import {HomePage} from "../pages/HomePage";
 import {DoneListPage} from "../pages/DoneListPage";
 import {AboutUsPage} from "../pages/AboutUsPage";
+import {TodoDetailPage} from "../pages/TodoDetailPage";
 
 export const router = createBrowserRouter([
     {
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage/>
+            },
+            {
+                path: "/todos/:id",
+                element: <TodoDetailPage/>
             },
             {
                 path: "/done",

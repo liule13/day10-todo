@@ -7,7 +7,7 @@ export function DefaultLayout() {
                 <nav>
                     <ul>
                         <li><NavLink to={"/"}>Home</NavLink></li>
-                        <li><NavLink to={"/done/"}>Done List</NavLink></li>
+                        <li><NavLink to={"/done"}>Done List</NavLink></li>
                         <li><NavLink to={"/about"}>AboutUs</NavLink></li>
                     </ul>
                 </nav>

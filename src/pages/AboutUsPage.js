@@ -1,7 +1,8 @@
-import TodoList from "../components/TodoList";
-
 export function AboutUsPage() {
     return (
-        <TodoList></TodoList>
+        <div className="todo-list">
+            <h2>Todo List</h2>
+            <h1>About Us</h1>
+        </div>
     );
 }
