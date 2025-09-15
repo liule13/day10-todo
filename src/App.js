@@ -3,7 +3,8 @@ import "./App.css";
 import {todoReducer} from "./reducers/TodoReducer";
 import {TodoContext} from "./contexts/TodoContext";
 import TodoList from "./components/TodoList";
-import {createBrowserRouter, NavLink, Outlet, Route, RouterProvider, useRouteError} from "react-router";
+import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
+import {ErrorPage} from "./pages/ErrorPage";
 
 
 function DefaultLayout() {
@@ -21,18 +22,6 @@ function DefaultLayout() {
             <main>
                 <Outlet></Outlet>
             </main>
-        </div>
-    );
-}
-
-function ErrorPage() {
-    const error = useRouteError();
-    return (
-        <div>
-            {error.status === 404
-                ? <div><h1>404 Not Found</h1></div>
-                : <div>{JSON.stringify(error)}</div>
-            }
         </div>
     );
 }
