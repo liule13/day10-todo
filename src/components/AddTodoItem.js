@@ -1,13 +1,9 @@
 import {useState, useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
-import {api} from "../mockApi";
-
-function createTodo(inputValue) {
-    return api.post("/todos", {text: inputValue.trim(), done: false})
-        .then(response => response.data);
-}
+import {useTodoService} from "../useTodoService";
 
 export function AddTodoForm() {
+    const {createTodo} = useTodoService();
     const {dispatch} = useContext(TodoContext);
     const [inputValue, setInputValue] = useState("");
 

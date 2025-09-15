@@ -1,26 +1,14 @@
 import {useContext} from "react";
 
 import {TodoContext} from "../contexts/TodoContext";
-import {api} from "../mockApi";
-
-function updateTodo(props) {
-    return api.put("/todos/" + props.todo.id, {
-        ...props.todo,
-        done: !props.todo.done
-    })
-        .then(res => res.data);
-}
-
-function deleteTodoItem(props) {
-    return api.delete("/todos/" + props.todo.id)
-        .then(res => res.data);
-}
+import {useTodoService} from "../useTodoService";
 
 export function TodoItem(props) {
+    const {updateTodo,deleteTodoItem} = useTodoService()
     const {dispatch} = useContext(TodoContext)
-
+    const todo = props.todo
     function makeAsDone() {
-        updateTodo(props)
+        updateTodo(todo)
             .then(todo => {
                 dispatch({
                     type: "UPDATE_TODO",
@@ -30,7 +18,7 @@ export function TodoItem(props) {
     }
 
     function deleteTodo() {
-        deleteTodoItem(props)
+        deleteTodoItem(todo)
             .then((todo => {
                     dispatch({
                         type: "DELETE_TODO",
