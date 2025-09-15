@@ -20,7 +20,7 @@ export function TodoItem(props) {
     }
 
     return (
-        <div className="todo-list">
+        <div className="todo-item-container">
             <div className={"todo-item"} onClick={makeAsDone}>
                 <span className={props.todo.done ? "todo-done" : ""}>
                     {props.todo.text}

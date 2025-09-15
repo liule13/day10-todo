@@ -3,6 +3,7 @@ import "./App.css";
 import { TodoGroup } from "./components/TodoGroup";
 import { todoReducer } from "./reducers/TodoReducer";
 import { TodoContext } from "./contexts/TodoContext";
+import TodoList from "./components/TodoList";
 
 export const initState = [
     {id: 1, text: "This is the first todo I need to do", done: false},
@@ -15,7 +16,7 @@ function App() {
         <div className="App">
             <h2>Todo List</h2>
             <TodoContext value={{ state, dispatch }}>
-                <TodoGroup/>
+                <TodoList/>
             </TodoContext>
         </div>
     );
