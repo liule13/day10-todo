@@ -1,5 +1,5 @@
 import {useParams} from "react-router";
-import {useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {TodoItem} from "../components/TodoItem";
 import {TodoContext} from "../contexts/TodoContext";
 
