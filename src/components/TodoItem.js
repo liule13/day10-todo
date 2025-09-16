@@ -46,13 +46,12 @@ export function TodoItem(props) {
 
     function deleteTodo() {
         deleteTodoItem(todo)
-            .then((todo => {
+            .then(() => {
                 dispatch({
                     type: "DELETE_TODO",
-                    payload: todo
+                    payload: { id: todo.id } 
                 });
-            }
-            ))
+            })
     }
 
     function toDetail() {

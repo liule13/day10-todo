@@ -10,12 +10,9 @@ api.interceptors.response.use(
     (response) => { return response; },
     (error) => {
         if (error.response) {
-            if (error.response.status === 404) {
-                message.error("Resource not found (404)");
-            } else if (error.response.status === 500) {
-                message.error("Server error (500)");
-            } else {
-                message.error(`Error: ${error.response.status}`);
+            const { status, data } = error.response;
+            if (status === 400 || status === 404 || status === 500) {
+                message.error(data.message || "An error occurred. Please try again.");
             }
         }
         return Promise.reject(error);
