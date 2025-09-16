@@ -1,12 +1,12 @@
-import {useState, useContext} from "react";
-import {TodoContext} from "../contexts/TodoContext";
-import {useTodoService} from "../useTodoService";
-import {Button, Input} from "antd";
-import {PlusOutlined} from "@ant-design/icons";
+import { useState, useContext } from "react";
+import { TodoContext } from "../contexts/TodoContext";
+import { useTodoService } from "../useTodoService";
+import { Button, Input } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 
 export function TodoGenerator() {
-    const {createTodo} = useTodoService();
-    const {dispatch} = useContext(TodoContext);
+    const { createTodo } = useTodoService();
+    const { dispatch } = useContext(TodoContext);
     const [inputValue, setInputValue] = useState("");
 
     const handleSubmit = (e) => {
@@ -26,7 +26,7 @@ export function TodoGenerator() {
     return (
         <form onSubmit={handleSubmit} style={{ display: "flex", gap: "8px", alignItems: "center" }}>
             <Input
-                placeholder="请输入待办事项..."
+                placeholder="Please enter your todo item"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 size="middle"

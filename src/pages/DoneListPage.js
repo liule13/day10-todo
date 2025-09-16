@@ -1,6 +1,6 @@
-import {useContext} from "react";
-import {TodoContext} from "../contexts/TodoContext";
-import {TodoItem} from "../components/TodoItem";
+import { useContext } from "react";
+import { TodoContext } from "../contexts/TodoContext";
+import { TodoItem } from "../components/TodoItem";
 
 export function DoneListPage() {
     const { state } = useContext(TodoContext)

@@ -1,9 +1,9 @@
-import {api} from "./mockApi";
+import { api } from "./mockApi";
 
-export function useTodoService(){
+export function useTodoService() {
 
     function createTodo(inputValue) {
-        return api.post("/todos", {text: inputValue.trim(), done: false})
+        return api.post("/todos", { text: inputValue.trim(), done: false })
             .then(response => response.data);
     }
     function updateTodo(todo) {
@@ -21,5 +21,5 @@ export function useTodoService(){
         return api.get("/todos")
             .then(response => response.data);
     }
-    return {createTodo, updateTodo, deleteTodoItem, loadTodos}
+    return { createTodo, updateTodo, deleteTodoItem, loadTodos }
 }

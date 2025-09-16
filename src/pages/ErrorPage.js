@@ -39,7 +39,7 @@ export function ErrorPage() {
                             cursor: "pointer",
                         }}
                     >
-                         return to Home
+                        return Home
                     </a>
                 </>
             ) : (
@@ -55,8 +55,8 @@ export function ErrorPage() {
                             Click to see error details
                         </summary>
                         <pre style={{ background: "#f1f1f1", padding: "1rem", borderRadius: "5px", overflow: "auto" }}>
-              {JSON.stringify(error, null, 2)}
-            </pre>
+                            {JSON.stringify(error, null, 2)}
+                        </pre>
                     </details>
                 </>
             )}

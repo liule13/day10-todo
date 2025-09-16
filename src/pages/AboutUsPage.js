@@ -14,7 +14,7 @@ export function AboutUsPage() {
             alignItems: 'center',
         }}>
             <Card
-                title={<Title level={2} style={{ textAlign: 'center', color: '#1890ff' }}>关于我们</Title>}
+                title={<Title level={2} style={{ textAlign: 'center', color: '#1890ff' }}>About Us</Title>}
                 style={{
                     width: '100%',
                     maxWidth: '600px',

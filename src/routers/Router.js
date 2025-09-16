@@ -1,32 +1,32 @@
-import {createBrowserRouter} from "react-router";
-import {DefaultLayout} from "../layouts/DefaultLayout";
-import {ErrorPage} from "../pages/ErrorPage";
-import {HomePage} from "../pages/HomePage";
-import {DoneListPage} from "../pages/DoneListPage";
-import {AboutUsPage} from "../pages/AboutUsPage";
-import {TodoDetailPage} from "../pages/TodoDetailPage";
+import { createBrowserRouter } from "react-router";
+import { DefaultLayout } from "../layouts/DefaultLayout";
+import { ErrorPage } from "../pages/ErrorPage";
+import { HomePage } from "../pages/HomePage";
+import { DoneListPage } from "../pages/DoneListPage";
+import { AboutUsPage } from "../pages/AboutUsPage";
+import { TodoDetailPage } from "../pages/TodoDetailPage";
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <DefaultLayout/>,
-        errorElement: <ErrorPage/>,
+        element: <DefaultLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
-                element: <HomePage/>
+                element: <HomePage />
             },
             {
                 path: "/todos/:id",
-                element: <TodoDetailPage/>
+                element: <TodoDetailPage />
             },
             {
                 path: "/done",
-                element: <DoneListPage/>
+                element: <DoneListPage />
             },
             {
                 path: "/about",
-                element: <AboutUsPage/>
+                element: <AboutUsPage />
             }
         ]
     }
